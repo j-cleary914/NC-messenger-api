@@ -37,5 +37,28 @@ describe("/", () => {
           ]);
         });
     });
+    it("GET:200, returns an array of messages", () => {
+      return request(app)
+        .get("/api/messages")
+        .expect(200)
+        .then(({ body: { messages } }) => {
+          expect(messages).to.be.an("array");
+        });
+    });
+    it("GET:200, each message has a relevant key", () => {
+      return request(app)
+        .get("/api/messages")
+        .expect(200)
+        .then(({ body: { messages } }) => {
+          messages.forEach(message => {
+            expect(message).to.have.keys([
+              "message_id",
+              "message",
+              "sender",
+              "created_at",
+            ]);
+          });
+        });
+    });
   });
 });
