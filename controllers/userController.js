@@ -1,4 +1,4 @@
-const { updateUser } = require("../models/usersModel.js");
+const { updateUser } = require("../models/userModel.js");
 
 const patchUser = (req, res, next) => {
   const { avatar_url } = req.body;

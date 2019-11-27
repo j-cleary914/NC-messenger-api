@@ -10,8 +10,6 @@ const updateUser = (username, avatar_url) => {
       return rows[0];
     });
 
-  // const update = connection.select("*").from();
-
   return update;
 };
 

@@ -1,9 +1,9 @@
 const apiRouter = require("express").Router();
 const { sendEndpoints } = require("../controllers/apiController");
-const { usersRouter } = require("./usersRouter");
+const { userRouter } = require("./userRouter");
 
 apiRouter.route("/").get(sendEndpoints);
 
-apiRouter.use("/users", usersRouter);
+apiRouter.use("/users", userRouter);
 
 module.exports = apiRouter;
