@@ -22,3 +22,17 @@ exports.fetchUser = username => {
       return response[0];
     });
 };
+
+exports.updateUser = (username, avatar_url) => {
+  const update = connection
+    .update({ avatar_url })
+    .where({ username })
+    .from("users")
+    .returning("*")
+    .then(rows => {
+      return rows[0];
+    });
+
+  return update;
+};
+
