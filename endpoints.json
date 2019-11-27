@@ -21,22 +21,48 @@
           "message_id": "some kind of ID",
           "created": "timestamp",
           "sender": "butter_bridge",
-          "message": "Jet Fuel Can't Melt Steel Beams"
+          "message": "Jet Fuel Cant Melt Steel Beams"
         }
       ]
     }
   },
 
-  "GET /api/messages": {
+  "POST /api/user": {
+    "accepts body": {
+      "username": "butter_bridge",
+      "avatar_url": "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg"
+    },
     "responds with": {
-      "messages": [
-        {
-          "message_id": "some kind of ID",
-          "created": "timestamp",
-          "sender": "butter_bridge",
-          "message": "Jet Fuel Can't Melt Steel Beams"
-        }
-      ]
+      "user": {
+        "username": "butter_bridge",
+        "avatar_url": "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg"
+      }
+    }
+  },
+  "POST /api/message": {
+    "accepts body": {
+      "sender": "butter_bridge",
+      "message": "Jet Fuel Can Melt Steel Beams"
+    },
+    "responds with": {
+      "message": {
+        "message_id": "some kind of ID",
+        "created": "timestamp",
+        "sender": "butter_bridge",
+        "message": "Jet Fuel Can Melt Steel Beams"
+      }
+    }
+  },
+  "PATCH /api/user": {
+    "accepts body": {
+      "username": "butter_bridge",
+      "avatar_url": "https://cdn1.thr.com/sites/default/files/imagecache/768x433/2019/03/avatar-publicity_still-h_2019.jpg"
+    },
+    "responds with": {
+      "user": {
+        "username": "butter_bridge",
+        "avatar_url": "https://cdn1.thr.com/sites/default/files/imagecache/768x433/2019/03/avatar-publicity_still-h_2019.jpg"
+      }
     }
   }
 }
