@@ -1,21 +1,35 @@
 {
-  "name": "nc-messenger-api",
+
+ 
+
+  "name": "NC-messenger-api",
+
   "version": "1.0.0",
   "description": "Our fantastic collaborative sprint back end !",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+
     "setup-dbs": "psql -f ./db/setup.sql",
+    "seed": "knex seed:run",
+    "test-utils": "mocha spec/utils.spec.js",
+    "test": "mocha spec/app.spec.js",
     "migrate-make": "knex migrate:make",
     "migrate-latest": "knex migrate:latest",
-    "migrate-latest-test": "NODE_ENV=test knex migrate:latest",
     "migrate-rollback": "knex migrate:rollback",
-    "migrate-rollback-test": "knex migrate:rollback"
+    "seed:prod": "NODE_ENV=production DB_URL=$(heroku config:get DATABASE_URL) knex seed:run",
+    "migrate-latest:prod": "NODE_ENV=production DB_URL=$(heroku config:get DATABASE_URL) knex migrate:latest",
+    "migrate-rollback:prod": "NODE_ENV=production DB_URL=$(heroku config:get DATABASE_URL) knex migrate:rollback",
+    "start": "node listen.js"
+
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/j-cleary914/NC-messenger-api.git"
   },
+  
+
+  "keywords": [],
+
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -23,8 +37,19 @@
   },
   "homepage": "https://github.com/j-cleary914/NC-messenger-api#readme",
   "dependencies": {
-    "knex": "^0.20.2",
-    "pg": "^7.14.0",
+
     "psql": "0.0.1"
+
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.20.1",
+    "pg": "^7.12.1",
+    "sams-chai-sorted": "^1.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "supertest": "^4.0.2"
+
   }
 }
