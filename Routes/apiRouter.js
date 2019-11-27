@@ -8,4 +8,6 @@ apiRouter.use("/users", userRouter);
 apiRouter.use("/messages", messageRouter);
 
 
+apiRouter.use("/users", usersRouter);
+
 module.exports = apiRouter;
