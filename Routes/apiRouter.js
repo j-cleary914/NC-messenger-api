@@ -1,8 +1,12 @@
 const apiRouter = require("express").Router();
-const usersRouter = require("./userRouter");
+const userRouter = require("./userRouter");
 const { sendEndpoints } = require("../controllers/apiController");
+const messageRouter = require("./messageRouter");
 
 apiRouter.route("/").get(sendEndpoints);
+apiRouter.use("/users", userRouter);
+apiRouter.use("/messages", messageRouter);
+
 
 apiRouter.use("/users", usersRouter);
 

@@ -11,4 +11,14 @@ exports.addUser = user => {
   return connection("users")
     .insert(user)
     .returning("*");
+}
+exports.fetchUser = username => {
+  console.log(username);
+  return connection
+    .select("*")
+    .from("users")
+    .where("username", username)
+    .then(response => {
+      return response[0];
+    });
 };
