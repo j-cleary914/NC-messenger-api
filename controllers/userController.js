@@ -1,4 +1,4 @@
-const { addUser } = require("../models/usersmod");
+const { addUser } = require("../models/userModel");
 
 exports.postUser = (req, res, next) => {
   const { body } = req;

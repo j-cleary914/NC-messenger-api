@@ -1,5 +1,5 @@
 const usersRouter = require("express").Router();
-const { postUser } = require("../controllers/usersController");
+const { postUser } = require("../controllers/userController");
 
 usersRouter.route("/").post(postUser);
 
