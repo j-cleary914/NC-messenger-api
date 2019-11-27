@@ -7,3 +7,7 @@ exports.createMessage = data => {
     .insert({ sender, message })
     .returning("*");
 };
+
+exports.selectMessages = () => {
+  return connection("messages").select("*");
+};
