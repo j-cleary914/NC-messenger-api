@@ -35,7 +35,7 @@
     "knex": "^0.20.1",
     "pg": "^7.12.1",
     "sams-chai-sorted": "^1.0.2",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
